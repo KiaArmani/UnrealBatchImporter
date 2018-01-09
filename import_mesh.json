@@ -1,0 +1,25 @@
+ {
+     "ImportGroups": [
+         {
+             "FileNames": [],
+             "bReplaceExisting": "true", 
+             "DestinationPath": "", 
+             "FactoryName": "FbxFactory", 
+             "ImportSettings": {
+                 "bImportMesh": 1, 
+                 "bConvertSceneUnit": 1, 
+                 "bConvertScene": 0,
+                 "bCombineMeshes": 1, 
+                 "bImportTextures": 0, 
+                 "bImportMaterials": 0, 
+                 "AnimSequenceImportData": {}, 
+                 "SkeletalMeshImportData": {},
+                 "TextureImportData": {}, 
+                 "StaticMeshImportData": {
+                     "bRemoveDegenerates": 1, 
+                     "bAutoGenerateCollision": 1
+                 }
+             }
+         }
+     ]
+ }

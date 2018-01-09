@@ -1,0 +1,13 @@
+{
+     "ImportGroups": [
+         {
+             "FileNames": [],
+             "DestinationPath": "",           
+             "bReplaceExisting": "true",              
+             "FactoryName": "SVGImportFactory", 
+             "ImportSettings": {
+                 "bCreateMaterial": false                 
+             }
+         }
+     ]
+ }

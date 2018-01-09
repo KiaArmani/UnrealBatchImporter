@@ -50,3 +50,35 @@ Run from Powershell
 C:\Users\Kia\Desktop\MyProject\MyProject.uproject" -s "D:\MyAssets" -i "Maps/MyMap/Textures/WMOs" -e "svg" -r true -
 c 3 -j "C:\Git\WoWUE4CmdImport\import_texture.json"
 ```
+
+# Example JSON
+```
+ {
+     "ImportGroups": [
+         {
+             "FileNames": [],
+             "bReplaceExisting": "true", 
+             "DestinationPath": "", 
+             "FactoryName": "FbxFactory", 
+             "ImportSettings": {
+                 "bImportMesh": 1, 
+                 "bConvertSceneUnit": 1, 
+                 "bConvertScene": 0,
+                 "bCombineMeshes": 1, 
+                 "bImportTextures": 0, 
+                 "bImportMaterials": 0, 
+                 "AnimSequenceImportData": {}, 
+                 "SkeletalMeshImportData": {},
+                 "TextureImportData": {}, 
+                 "StaticMeshImportData": {
+                     "bRemoveDegenerates": 1, 
+                     "bAutoGenerateCollision": 1
+                 }
+             }
+         }
+     ]
+ }
+ ```
+ 
+ Parameters are the same as the ones you can find in the UE4 Factory documentation which can be found here: https://docs.unrealengine.com/latest/INT/API/Editor/UnrealEd/Factories/
+

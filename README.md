@@ -46,9 +46,7 @@ class Options
 Run from Powershell
 
 ```
-.\WoWUE4CmdImport.exe -u "C:\Program Files\Epic Games\UE_4.18\Engine\Binaries\Win64" -p "
-C:\Users\Kia\Desktop\MyProject\MyProject.uproject" -s "D:\MyAssets" -i "Maps/MyMap/Textures/WMOs" -e "svg" -r true -
-c 3 -j "C:\Git\WoWUE4CmdImport\import_texture.json"
+.\WoWUE4CmdImport.exe -u "C:\Program Files\Epic Games\UE_4.18\Engine\Binaries\Win64" -p "C:\Users\Kia\Desktop\MyProject\MyProject.uproject" -s "D:\MyAssets" -i "Maps/MyMap/Textures/WMOs" -e "svg" -c 3 -j "C:\Git\WoWUE4CmdImport\import_texture.json"
 ```
 
 # Example JSON

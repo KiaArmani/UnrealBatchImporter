@@ -146,11 +146,8 @@ namespace WoWUE4CmdImport
                             {
                                 string tempOldFilePath = Path.Combine(tempImportFile.DirectoryName, "__tempimport", tempImportFile.Name);
                                 string tempNewFilePath = Path.Combine(tempImportFile.DirectoryName, "imported", tempImportFile.Name);
-                                if (File.Exists(tempOldFilePath))
-                                {
-                                    var newPath = tempNewFilePath + ".imported";
-                                    File.Move(tempOldFilePath, tempNewFilePath);
-                                }
+                                if (File.Exists(tempOldFilePath))                                                                    
+                                    File.Move(tempOldFilePath, tempNewFilePath);                                
                             }                                                        
 
                             // Update Progress

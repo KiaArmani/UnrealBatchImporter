@@ -38,6 +38,10 @@ namespace WoWUE4CmdImport
         [Option('j', "json", Required = true,
           HelpText = "Path to Import Settings JSON file.")]
         public string PathToImportJSON { get; set; }
+
+        [Option('t', "tilesubfolder", Required = false,
+         HelpText = "If true, make subfolders for tiles.")]
+        public bool MakeSubfolders { get; set; }
     }
     class Program
     {        
@@ -61,7 +65,8 @@ namespace WoWUE4CmdImport
                 JValue importDestinationJson = (JValue)importSettingsJson.SelectToken("ImportGroups[0].DestinationPath");
 
                 // Add Game prefix to path to bypass parsing bug with strings beginning with a forward slash
-                importDestinationJson.Value = "/Game/" + result.Value.ImportedFilesPath;
+                string finalDestination = "/Game/" + result.Value.ImportedFilesPath;
+                importDestinationJson.Value = finalDestination;                                
 
                 // Get files in source directory
                 DirectoryInfo sourceDir = new DirectoryInfo(result.Value.SourceFilesPath);
@@ -69,10 +74,7 @@ namespace WoWUE4CmdImport
 
                 // Get the file count and create a counter
                 int fileMaxCount = sourceFiles.Count();
-                int fileCount = 0;                
-
-                // Get real folder name from project path
-                string destiationFolder = Path.Combine(Path.GetDirectoryName(result.Value.ProjectPath), result.Value.ImportedFilesPath.Replace("Game", "Content")).Replace("/", "\\").Replace("/", @"\");
+                int fileCount = 0;                                
 
                 // Create folders where processed files are being placed into
                 Directory.CreateDirectory(Path.Combine(result.Value.SourceFilesPath, "__tempimport"));
@@ -103,6 +105,12 @@ namespace WoWUE4CmdImport
                                     importFilesJson.Add(tempNewFilePath);
                                 }
                             }
+
+                            if (result.Value.MakeSubfolders)
+                            {
+                                string tileName = Path.GetFileNameWithoutExtension(importFile.FullName).Split(new[] { "d_" }, StringSplitOptions.None)[1];
+                                importDestinationJson.Value = finalDestination + "/" + tileName + "/";
+                            }                                
 
                             // Write temp JSON file for importer
                             File.WriteAllText(Path.Combine(currentFolder, "tempimport.json"), importSettingsJson.ToString());                          

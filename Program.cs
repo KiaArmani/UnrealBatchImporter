@@ -92,8 +92,9 @@ namespace WoWUE4CmdImport
                     // For every file in the source folder..
                     foreach (FileInfo importFile in sourceFiles)
                     {
+                        processArray.Add(importFile);
                         // If we have the amount of files we want to process once, proceed..
-                        if(processArray.Count == result.Value.AmountOfAssetsToProcess)
+                        if (processArray.Count == result.Value.AmountOfAssetsToProcess)
                         {        
                             // Move files from array into temp processing folder and add it to the JSON
                             foreach (FileInfo tempImportFile in processArray)
@@ -154,11 +155,8 @@ namespace WoWUE4CmdImport
                             {
                                 string tempOldFilePath = Path.Combine(tempImportFile.DirectoryName, "__tempimport", tempImportFile.Name);
                                 string tempNewFilePath = Path.Combine(tempImportFile.DirectoryName, "imported", tempImportFile.Name);
-                                if (File.Exists(tempOldFilePath))
-                                {
-                                    var newPath = tempNewFilePath + ".imported";
-                                    File.Move(tempOldFilePath, tempNewFilePath);
-                                }
+                                if (File.Exists(tempOldFilePath))                                                                    
+                                    File.Move(tempOldFilePath, tempNewFilePath);                                
                             }                                                        
 
                             // Update Progress
@@ -168,12 +166,7 @@ namespace WoWUE4CmdImport
                             progress.Report((double)fileCount / fileMaxCount);
 
                             processArray.Clear();
-                        }
-                        // otherwise just add it to the array
-                        else
-                        {
-                            processArray.Add(importFile);
-                        }                                                
+                        }                                             
                     }
                 }                
             }

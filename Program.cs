@@ -166,6 +166,7 @@ namespace WoWUE4CmdImport
                             progress.Report((double)fileCount / fileMaxCount);
 
                             processArray.Clear();
+                            importFilesJson.Clear();
                         }                                             
                     }
                 }                

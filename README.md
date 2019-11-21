@@ -1,4 +1,4 @@
-# WoWUE4CmdImport
+# UnrealBatchImporter
 Command-line tool to batch-import assets to Unreal Engine without opening the Editor.
 
 # Notes

@@ -4,7 +4,7 @@ Command-line tool to batch-import assets to Unreal Engine without opening the Ed
 # Notes
 
 * Make sure you have enough disk space when importing a lot of assets as the Derived Data Cache can get really big!
-* Solution was created in VS 2017.
+* Solution was created in VS 2019.
 
 # Usage
 

@@ -53,11 +53,8 @@ namespace UnrealBatchImporter
 
                 var progressBlockCount = (int) (_currentProgress * BlockCount);
                 var percent = (int) (_currentProgress * 100);
-                var text = string.Format("[{0}{1}] {2,3}% {3} - Time remaining: {4}",
-                    new string('#', progressBlockCount), new string('-', BlockCount - progressBlockCount),
-                    percent,
-                    Animation[_animationIndex++ % Animation.Length],
-                    TimeRemainingText);
+                var text =
+                    $"[{new string('#', progressBlockCount)}{new string('-', BlockCount - progressBlockCount)}] {percent,3}% {Animation[_animationIndex++ % Animation.Length]} - Time remaining: {TimeRemainingText}";
 
                 UpdateText(text);
 
